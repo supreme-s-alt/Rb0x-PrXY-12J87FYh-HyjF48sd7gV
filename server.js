@@ -1,14 +1,14 @@
 var proxy = require('http-proxy');
 var express = require('express');
 var https = require('https');
-var url = require('url');
+var url = 'https://rb0x-prxy-12j87fyh-hyjf48sd7gv.onrender.com';
 var path = require('path');
 
 var api = require('./api.js');
 var blocked = require('./static/blocked.json');
 var reBlocked = require('./static/re_blocked.json');
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3000;
 var subdomainsAsPath = false;
 var serveHomepage = true;
 var serveHomepageOnAllSubdomains = false;
@@ -50,6 +50,7 @@ function getSubdomain (req, rewrite) {
   } else {
     var domain = req.headers.host;
     sub = domain.slice(0, domain.lastIndexOf('.', domain.lastIndexOf('.') - 1) + 1);
+    sub = 'https://rb0x-prxy-12j87fyh-hyjf48sd7gv.onrender.com'
   }
   return sub;
 }
